@@ -5,6 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Receipt</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+    function printReceipt() {
+        window.print();
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Receipt</h1>
+    </header>
+    <section class="receipt-section">
+        <h2>Purchased Items</h2>
+        <ul>
+            {% for order in orders %}
+            <li>{{ order.item_name }} - Quantity: {{ order.quantity }} - Total Price: KES {{ order.total_price }}</li>
+            {% endfor %}
+        </ul>
+        <p>Total Amount: KES {{ total_amount }}</p>
+        <button onclick="printReceipt()">Print Receipt</button>
+    </section>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header>
@@ -20,7 +52,7 @@
         <h3>Total Amount: KES {{ total_amount }}</h3>
     </section>
 </body>
-</html>
+</html> -->
 
 
 
